@@ -9,7 +9,7 @@
         android:id="@+id/inboxFragment"
         android:name="com.bignerdranch.android.presentation.ui.onboarding.OnboardingFragment"
         android:label="Main"
-        tools:layout="@layout/fragment_inbox">
+        tools:layout="@layout/fragment_onboarding">
         <action
             android:id="@+id/action_inboxFragment_to_loginFragment"
             app:destination="@id/loginFragment"

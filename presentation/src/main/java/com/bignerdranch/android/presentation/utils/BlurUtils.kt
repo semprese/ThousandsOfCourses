@@ -11,7 +11,7 @@
 //import android.widget.Button
 //
 //
-//object BlurUtils {
+//internal object BlurUtils {
 //    fun applyBlur(button: Button, context: Context) {
 //        // Загрузите фоновое изображение
 //        val bitmap =

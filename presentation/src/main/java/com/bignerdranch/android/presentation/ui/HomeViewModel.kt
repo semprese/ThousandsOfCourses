@@ -1,4 +1,5 @@
 package com.bignerdranch.android.presentation.ui
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bignerdranch.android.data.local.entity.CourseEntity
@@ -11,7 +12,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,6 +24,7 @@ class HomeViewModel @Inject constructor(
     private val _loginState = MutableStateFlow<LoginState>(LoginState.Idle)
     val loginState: StateFlow<LoginState> = _loginState
 
+    private var isSortDegreesState = mutableStateOf(false)
 
     fun toggleFavorite(courseId: Int, isChecked:Boolean) {
         viewModelScope.launch {
@@ -46,6 +47,36 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    fun onChangeSortType(isDegree:Boolean){
+        println(isDegree)
+        if (isDegree) {
+            sortListByDate()
+        }else{
+            sortListByDefault()
+        }
+    }
+    private fun sortListByDate() {
+        when (val current = _loginState.value) {
+            is LoginState.Success -> {
+                _loginState.value = current.copy(
+                    response = current.response
+                        .sortedByDescending { it.course.startDate }
+                )
+            }
+            else -> {}
+        }
+    }
+    private fun sortListByDefault() {
+        when (val current = _loginState.value) {
+            is LoginState.Success -> {
+                _loginState.value = current.copy(
+                    response = current.response
+                        .sortedBy { it.course.id }
+                )
+            }
+            else -> {}
+        }
+    }
 
 
     private val listImg = listOf(R.drawable.course1, R.drawable.course2, R.drawable.course3)
@@ -73,7 +104,10 @@ class HomeViewModel @Inject constructor(
                             course = courseFromRequest,
                             imageResId = listImg[ index % 3 ]
                         ) }
-                    _loginState.value = LoginState.Success(listWithImg)
+
+                    _loginState.value = LoginState.Success(
+                        if (isSortDegreesState.value) listWithImg.reversed() else listWithImg
+                    )
                 }
             } catch (e: Exception) {
                 println(e.message)

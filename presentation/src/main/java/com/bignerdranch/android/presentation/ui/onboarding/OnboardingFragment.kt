@@ -16,7 +16,7 @@ class OnboardingFragment() : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_inbox, container, false)
+        val view = inflater.inflate(R.layout.fragment_onboarding, container, false)
         val buttonOpenActivity: Button = view.findViewById<Button>(R.id.continueButton)
 
         buttonOpenActivity.setOnClickListener {
