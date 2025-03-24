@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomBottomNavigation2" parent="Widget.Design.BottomNavigationView">
+        <item name="itemIconTint">@color/bottom_nav_icon_color</item>
+        <item name="itemTextColor">@color/white</item>
+        <item name="itemFillColor">@color/lightGray</item>
+        <item name="itemActiveIndicatorStyle">@color/lightGray</item>
+        <item name="iconTint">@color/lightGray</item>
+
+        <item name="android:elevation">8dp</item>
+
+    </style>
+    <style name="CustomBottomNavigation" parent="Widget.Design.BottomNavigationView">
+    <item name="itemIconTint">@color/bottom_nav_icon_color</item>
+    <item name="itemTextColor">@color/bottom_nav_text_color</item>
+    <item name="android:elevation">8dp</item>
+</style>
+    <style name="Widget.Theme.ThousandsOfCourses.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+</resources>

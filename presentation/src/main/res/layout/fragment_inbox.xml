@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="280dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/tittle_onboarding"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:foregroundGravity="center_horizontal"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+            <Button
+                android:id="@+id/button2"
+                style="@style/OnboardingButtonStyle"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="1dp"
+                android:backgroundTint="@color/green"
+                android:rotation="-15"
+                android:text="RabbitMQ"
+                app:layout_constraintEnd_toStartOf="@+id/button3"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/button1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button9"
+                style="@style/OnboardingButtonStyle"
+                android:layout_marginTop="-8dp"
+                android:backgroundTint="@color/green"
+                android:rotation="15"
+                android:text="Big Data"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/button8"
+                app:layout_constraintTop_toTopOf="@id/button8" />
+
+            <Button
+                android:id="@+id/button15"
+                style="@style/OnboardingButtonStyle"
+                android:layout_marginTop="-8dp"
+                android:backgroundTint="@color/green"
+                android:rotation="-15"
+                android:text="Three.js"
+                app:layout_constraintEnd_toStartOf="@+id/button16"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/button14"
+                app:layout_constraintTop_toTopOf="@+id/button14" />
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="1С Администрирование"
+                app:layout_constraintEnd_toStartOf="@id/button2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="Трафик"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/button2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="Контент маркетинг"
+                app:layout_constraintEnd_toStartOf="@+id/button5"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button1" />
+
+            <Button
+                android:id="@+id/button5"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="B2B маркетинг"
+                app:layout_constraintEnd_toStartOf="@+id/button6"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/button4"
+                app:layout_constraintTop_toTopOf="@id/button4" />
+
+            <Button
+                android:id="@+id/button6"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="Google Аналитика"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/button5"
+                app:layout_constraintTop_toTopOf="@+id/button4" />
+
+            <Button
+                android:id="@+id/button7"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="UX исследователь"
+                app:layout_constraintEnd_toStartOf="@+id/button8"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button4" />
+
+            <Button
+                android:id="@+id/button8"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="Веб-аналитика"
+                app:layout_constraintEnd_toStartOf="@+id/button9"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/button7"
+                app:layout_constraintTop_toTopOf="@id/button7" />
+
+
+            <Button
+                android:id="@+id/button10"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="Геймдизайн"
+                app:layout_constraintEnd_toStartOf="@+id/button11"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button7" />
+
+            <Button
+                android:id="@+id/button11"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="Веб-дизайн"
+                app:layout_constraintEnd_toStartOf="@+id/button12"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/button10"
+                app:layout_constraintTop_toTopOf="@+id/button10" />
+
+            <Button
+                android:id="@+id/button12"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="Cinema 4D"
+                app:layout_constraintEnd_toStartOf="@+id/button13"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/button11"
+                app:layout_constraintTop_toTopOf="@id/button11" />
+
+            <Button
+                android:id="@+id/button13"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="Промпт инженеринг"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/button12"
+                app:layout_constraintTop_toTopOf="@+id/button12" />
+
+
+            <Button
+                android:id="@+id/button14"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="Webflow"
+                app:layout_constraintEnd_toStartOf="@+id/button15"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button10" />
+
+
+            <Button
+                android:id="@+id/button16"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="Cinema 4D"
+                app:layout_constraintEnd_toStartOf="@+id/button17"
+                app:layout_constraintStart_toEndOf="@+id/button15"
+                app:layout_constraintTop_toTopOf="@+id/button14" />
+
+            <Button
+                android:id="@+id/button17"
+                style="@style/OnboardingButtonStyle"
+                android:background="@drawable/transpar_button_background"
+                android:text="Python-разработка"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button16"
+                app:layout_constraintTop_toTopOf="@+id/button16" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/continueButton"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="@color/green"
+        android:text="Продолжить"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

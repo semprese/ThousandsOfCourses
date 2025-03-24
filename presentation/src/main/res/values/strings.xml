@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Thousands Of Courses</string>
+    <string name="tittle_onboarding">Тысячи курсов в одном месте</string>
+    <string name="title_activity_jetpack">JetpackActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_notifications">Favorite</string>
+    <string name="title_account">Account</string>
+    <string name="main_nav">Главная</string>
+    <string name="favorite_nav">Избранное</string>
+    <string name="account_nav">Аккаунт</string>
+    <string name="search_courses">Search courses...</string>
+    <string name="hint_email">example@gmail.com</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="hint_password">Введите пароль</string>
+    <string name="enter_label">Вход</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="favorite_tittle">Избранное</string>
+</resources>
