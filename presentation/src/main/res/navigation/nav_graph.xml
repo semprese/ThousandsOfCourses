@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
 
-    app:startDestination="@id/inboxFragment">
+    app:startDestination="@id/loginFragment">
     <fragment
-        android:id="@+id/inboxFragment"
+        android:id="@+id/onboardingFragment"
         android:name="com.bignerdranch.android.presentation.ui.onboarding.OnboardingFragment"
         android:label="Main"
         tools:layout="@layout/fragment_onboarding">
         <action
             android:id="@+id/action_inboxFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:popUpTo="@id/inboxFragment"
+            app:popUpTo="@id/onboardingFragment"
             app:popUpToInclusive="true"/>
     </fragment>
 
@@ -29,9 +29,7 @@
     </fragment>
 
 
-    <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <navigation
         android:id="@+id/mobile_navigation"
         app:startDestination="@+id/fullscreenMainFragment">
         <fragment

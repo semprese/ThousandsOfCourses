@@ -1,5 +1,7 @@
 package com.bignerdranch.android.presentation.ui.onboarding
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +13,11 @@ import com.bignerdranch.android.presentation.R
 
 
 class OnboardingFragment() : Fragment() {
+
+    private val sharedPrefs: SharedPreferences by lazy {
+        requireContext().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,6 +31,19 @@ class OnboardingFragment() : Fragment() {
         }
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        sharedPrefs.edit().putBoolean("welcome_shown", true).apply()
+    }
+
+    companion object {
+        fun shouldShow(context: Context): Boolean {
+            val prefs = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+            return !prefs.getBoolean("welcome_shown", false)
+        }
     }
 }
 
