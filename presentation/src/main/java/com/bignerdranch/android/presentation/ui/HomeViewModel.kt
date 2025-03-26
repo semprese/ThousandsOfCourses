@@ -24,7 +24,41 @@ class HomeViewModel @Inject constructor(
     private val _loginState = MutableStateFlow<LoginState>(LoginState.Idle)
     val loginState: StateFlow<LoginState> = _loginState
 
-    private var isSortDegreesState = mutableStateOf(false)
+    private val listImg = listOf(R.drawable.course1, R.drawable.course2, R.drawable.course3)
+
+    fun login(username: String, password: String) {
+        viewModelScope.launch {
+            _loginState.value = LoginState.Loading
+
+            try {
+                val request = LoginRequest(username, password)
+
+                //change hasLike from database
+                val combinedFlow = combine(
+                    authRepository.login(request),
+                    courseRepository.getAllFavorites()
+                ) { loginResponse , listFavorites ->
+                    loginResponse.courses.map {
+                        it.copy(hasLike = listFavorites.contains(it.id))
+                    }
+                }
+
+                combinedFlow.collect { response ->
+                    val listWithImg = response.mapIndexed { index, courseFromRequest ->
+                        CoursesWithImg(
+                            course = courseFromRequest,
+                            imageResId = listImg[ index % 3 ]
+                        ) }
+                    _loginState.value = LoginState.Success(
+                        response = listWithImg
+                    )
+                }
+            } catch (e: Exception) {
+                println(e.message)
+                _loginState.value = LoginState.Error(e.message ?: "Unknown error")
+            }
+        }
+    }
 
     fun toggleFavorite(courseId: Int, isChecked:Boolean) {
         viewModelScope.launch {
@@ -75,44 +109,6 @@ class HomeViewModel @Inject constructor(
                 )
             }
             else -> {}
-        }
-    }
-
-
-    private val listImg = listOf(R.drawable.course1, R.drawable.course2, R.drawable.course3)
-
-    fun login(username: String, password: String) {
-        viewModelScope.launch {
-            _loginState.value = LoginState.Loading
-
-            try {
-                val request = LoginRequest(username, password)
-
-                //change hasLike from database
-                val combinedFlow = combine(
-                    authRepository.login(request),
-                    courseRepository.getAllFavorites()
-                ) { loginResponse , listFavorites ->
-                    loginResponse.courses.map {
-                        it.copy(hasLike = listFavorites.contains(it.id))
-                    }
-                }
-
-                combinedFlow.collect { response ->
-                    val listWithImg = response.mapIndexed { index, courseFromRequest ->
-                        CoursesWithImg(
-                            course = courseFromRequest,
-                            imageResId = listImg[ index % 3 ]
-                        ) }
-
-                    _loginState.value = LoginState.Success(
-                        if (isSortDegreesState.value) listWithImg.reversed() else listWithImg
-                    )
-                }
-            } catch (e: Exception) {
-                println(e.message)
-                _loginState.value = LoginState.Error(e.message ?: "Unknown error")
-            }
         }
     }
 }
